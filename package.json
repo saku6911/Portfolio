@@ -1,6 +1,4 @@
 {
-  "name": "kaname-hp",
-  "version": "4.0.0",
   "private": true,
   "scripts": {
     "prebuild": "run-s css:typed:clean css:typed",
@@ -10,7 +8,6 @@
     "css:typed:clean": "find src -name '*.module.scss.d.ts' -type f -delete && find src -type d -empty -delete",
     "css:typed:watch": "tcm -e -w -p 'src/**/**/*.module.scss'",
     "dev": "next dev",
-    "dev:vercel": "bunx vercel dev",
     "env:pull": "bunx vercel env pull",
     "git:hooks": "git config --local core.hooksPath .githooks",
     "lint": "run-s css:typed:clean css:typed lint:deadcode lint:js lint:css",
@@ -55,9 +52,7 @@
             "screen",
             "function",
             "use",
-            "return",
-            "mixin",
-            "include"
+            "return"
           ]
         }
       ],
