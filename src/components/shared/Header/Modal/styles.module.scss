@@ -1,0 +1,26 @@
+@use "functions";
+
+.overlay {
+	position: absolute;
+	inset: 0 0 0 functions.rem(50);
+	display: none;
+
+  @media (max-width: 960px)  {
+		inset: functions.rem(60) 0 0 0;
+		z-index: 1;
+	}
+
+	&.loading {
+		display: block;
+
+    @media (max-width: 960px)  {
+			display: none;
+		}
+	}
+
+  @media (max-width: 960px)  {
+		&.isOpen {
+			display: block;
+		}
+	}
+}

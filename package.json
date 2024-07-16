@@ -1,41 +1,114 @@
 {
-  "name": "remix",
+  "name": "kaname-hp",
+  "version": "4.0.0",
   "private": true,
-  "sideEffects": false,
-  "type": "module",
   "scripts": {
-    "build": "remix vite:build",
-    "dev": "remix vite:dev",
-    "lint": "eslint --ignore-path .gitignore --cache --cache-location ./node_modules/.cache/eslint .",
-    "start": "remix-serve ./build/server/index.js",
-    "typecheck": "tsc"
+    "prebuild": "run-s css:typed:clean css:typed",
+    "build": "next build",
+    "build:analyze": "ANALYZE=true next build",
+    "css:typed": "tcm -e -p 'src/**/**/*.module.scss'",
+    "css:typed:clean": "find src -name '*.module.scss.d.ts' -type f -delete && find src -type d -empty -delete",
+    "css:typed:watch": "tcm -e -w -p 'src/**/**/*.module.scss'",
+    "dev": "next dev",
+    "dev:vercel": "bunx vercel dev",
+    "env:pull": "bunx vercel env pull",
+    "git:hooks": "git config --local core.hooksPath .githooks",
+    "lint": "run-s css:typed:clean css:typed lint:deadcode lint:js lint:css",
+    "lint:css": "run-s lint:css:**",
+    "lint:css:prettier": "prettier --write './**/*.{css,scss,sass}'",
+    "lint:css:stylelint": "stylelint './**/*.{css,scss}'",
+    "lint:deadcode": "bunx knip --exports",
+    "lint:js": "run-s lint:js:**",
+    "lint:js:biome": "biome check --apply \"./\"",
+    "lint:js:tsc": "tsc --noEmit",
+    "start": "next start"
+  
+  },
+  "lint-staged": {
+    "package.json": ["bunx sort-package-json", "biome check --apply"],
+    "*.{ts,tsx,js,jsx,json}": "biome check --apply",
+    "*.{css,scss,sass,less}": ["stylelint", "prettier --write"]
+  },
+  "prettier": {
+    "useTabs": true
+  },
+  "stylelint": {
+    "cache": true,
+    "fix": true,
+    "allowEmptyInput": true,
+    "plugins": ["stylelint-prettier"],
+    "extends": [
+      "stylelint-config-standard-scss",
+      "stylelint-config-recess-order",
+      "stylelint-prettier/recommended"
+    ],
+    "rules": {
+      "prettier/prettier": true,
+      "at-rule-no-unknown": [
+        true,
+        {
+          "ignoreAtRules": [
+            "tailwind",
+            "apply",
+            "variants",
+            "responsive",
+            "screen",
+            "function",
+            "use",
+            "return",
+            "mixin",
+            "include"
+          ]
+        }
+      ],
+      "no-descending-specificity": null,
+      "selector-class-pattern": "^[a-z][a-zA-Z0-9]+$",
+      "keyframes-name-pattern": "^[a-z][a-zA-Z0-9]+$",
+      "scss/at-mixin-pattern": "^[a-z][a-zA-Z0-9]+$",
+      "scss/dollar-variable-pattern": "^[a-z][a-zA-Z0-9]+$"
+    }
   },
   "dependencies": {
-    "@remix-run/node": "^2.9.1",
-    "@remix-run/react": "^2.9.1",
-    "@remix-run/serve": "^2.9.1",
-    "isbot": "^4.1.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "@types/nodemailer": "^6.4.15",
+    "html-react-parser": "^5.1.10",
+    "next": "^14.2.3",
+    "next-seo": "^6.5.0",
+    "nodemailer": "^6.9.14",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-hook-form": "^7.51.3"
   },
   "devDependencies": {
-    "@remix-run/dev": "^2.9.1",
-    "@types/react": "^18.2.20",
-    "@types/react-dom": "^18.2.7",
-    "@typescript-eslint/eslint-plugin": "^6.7.4",
-    "@typescript-eslint/parser": "^6.7.4",
-    "eslint": "^8.38.0",
-    "eslint-import-resolver-typescript": "^3.6.1",
-    "eslint-plugin-import": "^2.28.1",
-    "eslint-plugin-jsx-a11y": "^6.7.1",
-    "eslint-plugin-react": "^7.33.2",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "sass": "^1.77.0",
-    "typescript": "^5.1.6",
-    "vite": "^5.1.0",
-    "vite-tsconfig-paths": "^4.2.1"
+    "eslint": "^7.x",
+    "eslint-plugin-react": "^7.x",
+    "eslint-plugin-jsx-a11y": "^6.x",
+    "eslint-plugin-import": "^2.x",
+    "eslint-config-airbnb": "^18.x",
+    "eslint-config-prettier": "^8.x",
+    "eslint-plugin-prettier": "^4.x",
+    "@types/formidable": "^3.4.3",
+    "@types/node": "^20.12.7",
+    "@types/node-fetch": "^2.6.11",
+    "@types/react": "^18.3.1",
+    "@types/react-dom": "^18.3.0",
+    "clsx": "^2.1.1",
+    "lint-staged": "^15.2.2",
+    "microcms-js-sdk": "^3.1.1",
+    "next-sitemap": "^4.2.3",
+    "npm-run-all2": "^6.1.1",
+    "prettier": "^3.2.5",
+    "sass": "^1.75.0",
+    "stylelint": "^16.4.0",
+    "stylelint-config-recess-order": "^5.0.1",
+    "stylelint-config-standard-scss": "^13.1.0",
+    "stylelint-prettier": "^5.0.0",
+    "supabase": "^1.113.2",
+    "typed-css-modules": "0.7.2",
+    "typescript": "^5.4.5"
   },
   "engines": {
-    "node": ">=18.0.0"
+    "npm": "Plese use bun",
+    "pnpm": "Please use bun",
+    "yarn": "Please use bun"
   }
 }

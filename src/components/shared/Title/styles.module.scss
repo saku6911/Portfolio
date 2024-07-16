@@ -1,0 +1,8 @@
+@use 'functions' as functions;
+
+.title{
+  display: inline-block;
+	display: grid;
+	justify-content: center;
+  border-bottom: 2px solid $colorBorder;
+}

@@ -1,0 +1,45 @@
+@use "functions";
+
+.wrapper{
+  display: grid;
+  gap:functions.rem(24);
+  align-items: center;
+  justify-items: center;
+  padding: 0 functions.rem(100);
+}
+
+.title {
+	display: grid;
+	justify-content: center;
+	gap:functions.rem(16);
+	font-size: functions.rem(24);
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.label {
+    margin-bottom: functions.rem(5);
+    font-weight: $fontWeightBold;
+}
+
+.input, .textarea {
+    margin-bottom: functions.rem(16);
+    padding: functions.rem(8);
+    border: functions.rem(1) solid $colorBorder;
+    border-radius: functions.rem(5);
+    text-align: left;
+}
+
+.textarea {
+    height: functions.rem(100);
+}
+
+
+.button{
+   width: auto;
+   text-align: center;
+}

@@ -1,0 +1,35 @@
+@use 'functions' as functions;
+.menu {
+  position: relative;
+  top: functions.rem(-50);
+  z-index: 100;
+  height: calc(100% - functions.rem(100));
+  padding: functions.rem(20);
+  overflow-y: auto;
+  scrollbar-gutter: stable;
+  background-color: $colorBase;
+}
+
+.links {
+  padding: functions.rem(20) functions.rem(4);
+  border-bottom: 1px solid $colorBorder;
+}
+
+.contentsLinks {
+  padding: functions.rem(20) 0;
+}
+
+.links a {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  height: functions.rem(48);
+}
+
+.links:last-child {
+  border: none;
+}
+
+.title {
+  font-weight: $fontWeightBold;
+}

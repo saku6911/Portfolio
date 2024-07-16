@@ -1,0 +1,28 @@
+@use 'functions' as functions;
+
+.primaryButton{
+  font-weight: $fontWeightBold;
+  border:solid;
+  padding: functions.rem(16) functions.rem(48);
+}
+
+.primaryButton:hover{
+  color: $colorBase;
+  background-color: $colorBaseDark3;
+  transition: 0.3s; 
+}
+
+.secondaryButton{
+  font-weight: $fontWeightBold;
+  border:solid;
+  padding: functions.rem(16) functions.rem(48);
+  background-color:  $colorBaseDark3;
+  color: $colorBase;
+}
+
+.secondaryButton:hover{
+  border:solid;
+  background-color:$colorBase;
+  color:$colorBaseDark3;
+  transition: 0.3s; 
+}

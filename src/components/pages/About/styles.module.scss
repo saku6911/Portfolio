@@ -1,0 +1,101 @@
+@use "functions";
+
+.wrapper{
+	display: grid;
+	gap:functions.rem(24);
+	padding: 0 functions.rem(100);
+	align-items: center;
+	justify-items: center;
+}
+.gridStyle {
+	display: grid;
+	grid-template-columns: auto 1fr;
+	column-gap: functions.rem(40);
+	@media (max-width: 960px)   {
+		grid-template-rows: repeat(3, auto);
+		grid-template-columns: 1fr;
+		gap: functions.rem(20) functions.rem(0);
+		place-items: center;
+		padding: functions.rem(20) functions.rem(20) functions.rem(40);
+	}
+}
+
+.imgArea {
+	display: grid;
+	grid-column: 1;
+	align-items: center;
+
+	@media (max-width: 960px)  {
+		grid-row: 1;
+	}
+}
+
+.imgAreabox {
+	width: functions.rem(300);
+	height: functions.rem(300);
+	overflow: hidden;
+}
+
+.img {
+	position: relative;
+	height: 100%;
+
+	> img {
+		object-fit: cover;
+	}
+}
+
+
+.textArea {
+	display: grid;
+	align-items: center;
+	@media (max-width: 960px)  {
+		grid-row: 3;
+		grid-column: 1;
+		justify-content: start;
+	}
+}
+
+.nameText{
+ font-weight:$fontWeightBold;
+ font-size: functions.rem(26);
+ padding-bottom: functions.rem(8);
+ border-bottom: functions.rem(0.5) solid $colorBorder;
+ @media (max-width: 960px)   {
+	text-align: center;}
+}
+
+.nameTextEn{
+	font-size: functions.rem(16);
+}
+
+.textArea{
+	padding: functions.rem(8) 0;
+}
+
+.image {
+	position: absolute;
+	right: 0;
+	bottom: functions.rem(-100);
+	z-index: 1;
+	width: functions.rem(160);
+	aspect-ratio: 1/1;
+	animation: image 5s linear forwards;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+
+	@media (max-width: 960px)  {
+		bottom: -1%;
+		width: functions.rem(90);
+	}
+
+	@keyframes image {
+		0% {
+			transform: translateY(0);
+		}
+
+		100% {
+			transform: translateY(functions.rem(20));
+		}
+	}
+}

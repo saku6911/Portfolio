@@ -1,0 +1,17 @@
+@use 'functions' as functions;
+.links{
+    display: grid;
+    justify-content: center;
+}
+.lists{
+    display: flex;
+    justify-content: center;
+    gap: functions.rem(32);
+    padding: functions.rem(16);
+}
+.list{
+   text-align: center;
+}
+.list:hover{
+   opacity: 0.5;
+ }

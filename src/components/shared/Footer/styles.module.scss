@@ -1,0 +1,13 @@
+@use 'functions' as functions;
+
+.footer{
+display:grid;
+justify-content: left;
+background-color:$colorBaseDark3 ;
+color:  $colorBase;
+padding:functions.rem(32) functions.rem(16);
+}
+
+.title{
+  padding: 0 functions.rem(16);
+}

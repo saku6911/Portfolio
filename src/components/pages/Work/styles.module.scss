@@ -1,0 +1,117 @@
+@use "functions";
+
+.wrapper {
+	display: grid;
+	align-items: center;
+	justify-items: center;
+	gap:functions.rem(24);
+	padding: 0 functions.rem(100);
+}
+
+.titleArea {
+	display: grid;
+	grid-template-columns: auto 1fr;
+	place-items: center;
+	width: 100%;
+}
+
+.title{
+	font-size: functions.rem(24);
+}
+
+.more {
+	display: grid;
+	place-items: end;
+	width: 100%;
+	padding: functions.rem(40) 0;
+}
+
+.sectionAreaCard {
+	display:flex;
+	width: 100%;
+	gap:functions.rem(16);
+}
+
+.itemBoxArea {
+	box-sizing: border-box;
+	padding: functions.rem(20);
+	background-color: $colorBase;
+	border: 1px solid $colorBaseDark1;
+	border-radius: functions.rem(5);
+}
+
+.itemBoxArea:hover {
+	opacity: 0.5;
+	transition: 0.3s;
+}
+
+.itemLink {
+	color: $colorBaseDark3;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.itemBoxContents {
+	display: grid;
+	row-gap: functions.rem(20);
+}
+
+.itemPhoto {
+	width: 100%;
+
+	@media (max-width: 960px)  {
+		display: flex;
+		justify-content: center;
+	}
+}
+
+.photo {
+	width: 100%;
+	height: auto;
+	aspect-ratio: 1/1;
+	object-fit: cover;
+	width: functions.rem(300);
+}
+
+.itemArea {
+	@media (max-width: 960px)  {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+}
+
+.itemDate {
+	font-weight: 400;
+}
+
+.itemTitle {
+	font-weight: $fontWeightBold;
+}
+
+.image {
+	position: absolute;
+	right: 0;
+	bottom: functions.rem(-100);
+	z-index: 1;
+	width: functions.rem(160);
+	aspect-ratio: 1/1;
+	animation: image 5s linear forwards;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+
+	@media (max-width: 960px)  {
+		bottom: -1%;
+		width: functions.rem(90);
+	}
+
+	@keyframes image {
+		0% {
+			transform: translateY(0);
+		}
+
+		100% {
+			transform: translateY(functions.rem(20));
+		}
+	}
+}

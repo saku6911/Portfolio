@@ -1,0 +1,12 @@
+@use "functions";
+
+.wrapper{
+    display: grid;
+    gap:functions.rem(120);
+    color:$colorBaseDark3;
+    width: 100%;
+}
+
+.mainContent{
+    padding:0 functions.rem(120);
+}
