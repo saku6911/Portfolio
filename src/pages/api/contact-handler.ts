@@ -1,10 +1,11 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import nodeMailer from "nodemailer"
 
+export const runtime = 'edge';
+
 export default function contactHandler(req: NextApiRequest, res: NextApiResponse){
     if (req.method === "POST") {
         const { email, name, subject ,message } = req.body
-
         const transporter = nodeMailer.createTransport({
             host: "smtp.gmail.com",       
             port: 587,
