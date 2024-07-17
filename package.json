@@ -18,8 +18,7 @@
     "lint:js": "run-s lint:js:**",
     "lint:js:biome": "biome check --apply \"./\"",
     "lint:js:tsc": "tsc --noEmit",
-    "start": "next start",
-     "install": "bun install"
+    "start": "next start"
   
   },
   "lint-staged": {
