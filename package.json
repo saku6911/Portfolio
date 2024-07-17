@@ -19,52 +19,10 @@
     "lint:js:biome": "biome check --apply \"./\"",
     "lint:js:tsc": "tsc --noEmit",
     "start": "next start"
-  
-  },
-  "lint-staged": {
-    "package.json": ["bunx sort-package-json", "biome check --apply"],
-    "*.{ts,tsx,js,jsx,json}": "biome check --apply",
-    "*.{css,scss,sass,less}": ["stylelint", "prettier --write"]
-  },
-  "prettier": {
-    "useTabs": true
-  },
-  "stylelint": {
-    "cache": true,
-    "fix": true,
-    "allowEmptyInput": true,
-    "plugins": ["stylelint-prettier"],
-    "extends": [
-      "stylelint-config-standard-scss",
-      "stylelint-config-recess-order",
-      "stylelint-prettier/recommended"
-    ],
-    "rules": {
-      "prettier/prettier": true,
-      "at-rule-no-unknown": [
-        true,
-        {
-          "ignoreAtRules": [
-            "tailwind",
-            "apply",
-            "variants",
-            "responsive",
-            "screen",
-            "function",
-            "use",
-            "return"
-          ]
-        }
-      ],
-      "no-descending-specificity": null,
-      "selector-class-pattern": "^[a-z][a-zA-Z0-9]+$",
-      "keyframes-name-pattern": "^[a-z][a-zA-Z0-9]+$",
-      "scss/at-mixin-pattern": "^[a-z][a-zA-Z0-9]+$",
-      "scss/dollar-variable-pattern": "^[a-z][a-zA-Z0-9]+$"
-    }
   },
   "dependencies": {
     "@types/nodemailer": "^6.4.15",
+    "eslint-plugin-next": "^0.0.0",
     "html-react-parser": "^5.1.10",
     "next": "^14.2.3",
     "next-seo": "^6.5.0",
