@@ -12,13 +12,13 @@ export default function contactHandler(req: NextApiRequest, res: NextApiResponse
             secure: false,
             service: "gmail",
             auth: {
-                user:process.env.MAIL_ACCOUNT,
-                pass:process.env.MAIL_PASS,        
+                user:process.env.NEXT_PUBLIC_MAIN_ACCOUNT,
+                pass:process.env.NEXT_PUBLIC_MAIN_PASS,        
             }
         })
     
         const mailOptions = {
-            from:process.env.MAIL_ACCOUNT,
+            from:process.env.NEXT_PUBLIC_MAIN_ACCOUNT,
             to: "e-mail",
             subject: "ポートフォリオお問い合わせ",
             text: `名前: ${name} \n\nメールアドレス: ${email}  \n\n件名: ${subject} \n\nメッセージ: ${message}`
