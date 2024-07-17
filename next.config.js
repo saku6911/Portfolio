@@ -22,7 +22,6 @@ module.exports = withBundleAnalyzer({
 	env: {
 		API_KEY: process.env.API_KEY,
 		API_DOMAIN: process.env.API_DOMAIN,
-		RECAPTCHA_SITE_KEY: process.env.RECAPTCHA_SITE_KEY,
 	},
 	sassOptions: {
 		includePaths: [path.join(__dirname, "src/styles")],
