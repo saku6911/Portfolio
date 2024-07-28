@@ -27,7 +27,7 @@ export const About: FC = () => {
           <p className={css.nameText}>白取 優花 <span className={css.nameTextEn}>Shiratori Yuka</span></p>
 		  <div className={css.textArea}>
               <p>2022年から中小企業のWEBデザイナー/フロントエンジニアとして業務に従事。
-               それまでは約5年間人事・広報・総務などの事務業務を行なっていた。フロントエンドエンジニアとしてモダンフロントエンドの技術をもっと高めたいと思い転職を決意。一児の母。</p>
+               それまでは約5年間人事・広報・総務などの事務業務を行なっていた。フロントエンドエンジニアとしてモダンフロントエンドの技術をもっと高めたいと思う。一児の母。</p>
             <p>【使用ツール】</p>
               <p>HTML/CSS/JavaScript/TypeScript/React/Remix/Adobe Illustrator/Adobe Photoshop/Figma</p>
            <p>【趣味】</p>
