@@ -1,4 +1,4 @@
-import { routing } from "@/routing";
+import { workRouting } from "@/routing";
 import Img from "next/image";
 import Link from "next/link";
 import type { FC } from "react";
@@ -21,7 +21,7 @@ export const WorkContainer: FC<Props> = ({
 }) => {
 	return (
 		<div className={css.itemBoxArea}>
-			<Link href={`${routing.work}${id}`} legacyBehavior>
+			<Link href={`${workRouting.work}${id}`} legacyBehavior>
 				<div className={css.itemLink}>
 					<div className={css.itemBoxContents}>
 						<div className={css.itemPhoto}>

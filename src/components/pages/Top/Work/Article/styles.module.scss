@@ -1,0 +1,28 @@
+@use "functions";
+@use "mixins";
+
+.gridStyle {
+  display: grid;
+
+  @include mixins.gap100;
+
+  @include mixins.mq(sd) {
+    @include mixins.gap20;
+  }
+}
+
+.area {
+  display: grid;
+  gap: functions.rem(40);
+  width: 95%;
+  max-width: $pcMaxWidth;
+  padding: functions.rem(40) 0;
+  margin: auto;
+}
+
+.linkArea {
+  display: grid;
+  justify-items: end;
+  width: 100%;
+  max-width: $pcMaxWidth;
+}

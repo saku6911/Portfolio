@@ -1,0 +1,18 @@
+@use "functions";
+
+.style {
+	background: linear-gradient(0deg, #e0e0e0, #fceaba, #fae7ea, #e2f1f8);
+
+	@media (max-width: 750px) {
+		min-height: functions.rem(768);
+	}
+}
+
+.contentArea {
+	display: flex;
+	justify-content: center;
+}
+
+.content {
+	width: 90%;
+}

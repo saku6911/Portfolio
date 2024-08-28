@@ -4,3 +4,7 @@ export const routing = {
   work: "#work",
   contact: "#contact",
 } as const;
+
+export const workRouting = {
+  work: "/work/",
+} as const;
